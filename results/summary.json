@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "measured_at": "2026-08-18T00:33:34+00:00",
+    "python": "3.12.13",
+    "cryptography": "50.0.0",
+    "staykey": "1.0.0",
+    "platform": "macOS-26.4.1-arm64-arm-64bit",
+    "data": "100% synthetic, seeded (STAYKEY_SEED=42); simulated lock (no real BLE/NFC hardware)"
+  },
+  "security": {
+    "adversarial_attempts": 400,
+    "adversarial_denied": 400,
+    "unauthorized_unlocks": 0,
+    "access_precision": 1.0,
+    "access_recall": 1.0,
+    "adversarial_categories": [
+      "expired",
+      "forged_signature",
+      "impersonation",
+      "malformed",
+      "not_yet_valid",
+      "replayed",
+      "revoked",
+      "tampered_payload",
+      "wrong_property",
+      "wrong_room"
+    ]
+  },
+  "connected_room": {
+    "cross_scope_attempts": 26,
+    "cross_scope_leaks": 0,
+    "legit_accepted": "9/9"
+  },
+  "no_double_book": {
+    "single_room_race": {
+      "threads": 32,
+      "successes": 1,
+      "assignments_for_room": 1
+    },
+    "double_booked_total": 0
+  },
+  "lifecycle_all_correct": true,
+  "latency": {
+    "offline_verify_p50_ms": 0.2819,
+    "offline_verify_p95_ms": 0.3018,
+    "offline_verify_throughput_per_sec": 3488.9,
+    "key_issuance_p95_ms": 0.1466
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "measured_at": "2026-08-18T00:33:34+00:00",
+    "python": "3.12.13",
+    "cryptography": "50.0.0",
+    "staykey": "1.0.0",
+    "platform": "macOS-26.4.1-arm64-arm-64bit",
+    "data": "100% synthetic, seeded (STAYKEY_SEED=42); simulated lock (no real BLE/NFC hardware)"
+  },
+  "offline_verify": {
+    "n": 5000,
+    "p50_ms": 0.2819,
+    "p95_ms": 0.3018,
+    "p99_ms": 0.3863,
+    "mean_ms": 0.2864,
+    "min_ms": 0.275,
+    "max_ms": 0.5785,
+    "throughput_verifications_per_sec": 3488.9,
+    "method": "in-process finish_unlock (2x Ed25519 verify + checks); challenges pre-registered, responses pre-signed outside timing"
+  },
+  "key_issuance": {
+    "n": 2000,
+    "p50_ms": 0.1384,
+    "p95_ms": 0.1466,
+    "p99_ms": 0.1925,
+    "mean_ms": 0.1402,
+    "min_ms": 0.1347,
+    "max_ms": 0.3568,
+    "method": "in-process credential.issue_credential (device keygen + Ed25519 sign); excludes DB insert"
+  }
+}

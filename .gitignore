@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.venv/
+venv/
+
+# SQLite reservation store (regenerated at runtime)
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+data/
+
+# Keys & secrets — NEVER commit the property PRIVATE key.
+# The property keypair is generated at runtime into data/ (gitignored) or an env var.
+*.pem
+*.key
+property_ed25519_sk*
+.env
+.env.*
+*.local
+
+# results/ IS committed (measured numbers); keep it
+!results/
+!results/*.json
+
+# OS
+.DS_Store

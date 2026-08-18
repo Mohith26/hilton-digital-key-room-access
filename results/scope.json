@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "measured_at": "2026-08-18T00:33:30+00:00",
+    "python": "3.12.13",
+    "cryptography": "50.0.0",
+    "staykey": "1.0.0",
+    "platform": "macOS-26.4.1-arm64-arm-64bit",
+    "data": "100% synthetic, seeded (STAYKEY_SEED=42); simulated lock (no real BLE/NFC hardware)"
+  },
+  "legit_commands": 9,
+  "legit_accepted": 9,
+  "cross_scope_attempts": 26,
+  "cross_scope_leaks": 0,
+  "post_checkout_revoked": [
+    "d6674a72d33146528d6faa74423f3234"
+  ],
+  "deny_reason_distribution": {
+    "wrong_room": 18,
+    "bad_response": 3,
+    "bad_command": 2,
+    "revoked": 3
+  },
+  "note": "commands: tv/thermostat/lights; cross-room, impersonation (no device key), bad-command, and post-checkout attempts all rejected."
+}

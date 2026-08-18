@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "measured_at": "2026-08-18T00:33:30+00:00",
+    "python": "3.12.13",
+    "cryptography": "50.0.0",
+    "staykey": "1.0.0",
+    "platform": "macOS-26.4.1-arm64-arm-64bit",
+    "data": "100% synthetic, seeded (STAYKEY_SEED=42); simulated lock (no real BLE/NFC hardware)"
+  },
+  "total_attempts": 500,
+  "adversarial_attempts": 400,
+  "adversarial_denied": 400,
+  "unauthorized_unlocks": 0,
+  "legit_attempts": 100,
+  "legit_unlocked": 100,
+  "access_precision": 1.0,
+  "access_recall": 1.0,
+  "confusion": {
+    "tp": 100,
+    "fp": 0,
+    "fn": 0,
+    "tn": 400
+  },
+  "adversarial_categories": [
+    "expired",
+    "forged_signature",
+    "impersonation",
+    "malformed",
+    "not_yet_valid",
+    "replayed",
+    "revoked",
+    "tampered_payload",
+    "wrong_property",
+    "wrong_room"
+  ],
+  "per_category_attempts": {
+    "legit": 100,
+    "expired": 40,
+    "not_yet_valid": 40,
+    "wrong_room": 40,
+    "wrong_property": 40,
+    "forged_signature": 40,
+    "tampered_payload": 40,
+    "revoked": 40,
+    "replayed": 40,
+    "impersonation": 40,
+    "malformed": 40
+  },
+  "per_category_denied": {
+    "expired": 40,
+    "not_yet_valid": 40,
+    "wrong_room": 40,
+    "wrong_property": 40,
+    "forged_signature": 40,
+    "tampered_payload": 40,
+    "revoked": 40,
+    "replayed": 40,
+    "impersonation": 40,
+    "malformed": 40
+  },
+  "deny_reason_distribution": {
+    "expired": 40,
+    "not_yet_valid": 40,
+    "wrong_room": 40,
+    "wrong_property": 40,
+    "forged_signature": 80,
+    "revoked": 40,
+    "replayed": 40,
+    "bad_response": 40,
+    "malformed": 40
+  },
+  "note": "single offline LockVerifier (property HILTON-DEMO-001, room 101); tampered payloads are caught by the property-signature check (deny reason forged_signature)."
+}

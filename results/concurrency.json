@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "measured_at": "2026-08-18T00:33:30+00:00",
+    "python": "3.12.13",
+    "cryptography": "50.0.0",
+    "staykey": "1.0.0",
+    "platform": "macOS-26.4.1-arm64-arm-64bit",
+    "data": "100% synthetic, seeded (STAYKEY_SEED=42); simulated lock (no real BLE/NFC hardware)"
+  },
+  "single_room_race": {
+    "threads": 32,
+    "successes": 1,
+    "room_unavailable_rejections": 31,
+    "assignments_for_room": 1,
+    "double_booked": 0
+  },
+  "multi_room_race": {
+    "rooms": 10,
+    "competing_overlapping_stays": 40,
+    "assigned": 10,
+    "distinct_rooms_used": 10,
+    "duplicate_room_assignments": 0
+  },
+  "double_booked_total": 0,
+  "note": "half-open interval overlap check inside BEGIN IMMEDIATE serializes writers; 32 threads race for 1 room -> exactly 1 wins; 40 overlapping stays for 10 rooms -> 10 assigned, 0 shared."
+}

@@ -1,0 +1,41 @@
+{
+  "num": 116,
+  "slug": "hilton-digital-key-room-access",
+  "short_name": "StayKey",
+  "target": "Hilton — 2027 Technology Intern (Software Engineering & Cyber; Connected Room / Mobile)",
+  "status": "DONE",
+  "phase": "4/4 - connected room + bench + report (all must-have v1 complete, measured)",
+  "measured_at": "2026-08-18",
+  "stack": "Python 3.12, cryptography 50.0.0 (Ed25519), FastAPI + uvicorn, pydantic, SQLite, pytest + pytest-cov",
+  "metrics_captured": true,
+  "tests": "45 passed (pytest); 91% coverage on staykey/",
+  "bullets_filled": {
+    "adversarial_attempts": "400",
+    "unauthorized_unlocks": "0",
+    "access_precision": "1.0",
+    "access_recall": "1.0",
+    "legit_unlocked": "100/100",
+    "offline_verify_p50_ms": "0.2819",
+    "offline_verify_p95_ms": "0.3018",
+    "offline_verify_throughput_per_sec": "3488.9",
+    "key_issuance_p95_ms": "0.1466",
+    "connected_room_cross_scope_leaks": "0/26",
+    "double_booked_total": "0",
+    "tests": "45",
+    "coverage_pct": "91"
+  },
+  "measurement_methodology": {
+    "security": "single offline LockVerifier (HILTON-DEMO-001, room 101); 500 presentations (100 legit + 400 adversarial across 10 categories, 40 each); full challenge-response each; precision/recall over legit-unlock vs adversarial-deny. tampered_payload + forged_signature both surface deny reason forged_signature (correct crypto outcome).",
+    "offline_purity": "proven two ways: (1) AST import-closure of staykey.lock + credential + antireplay contains no sqlite3/socket/http/httpx/fastapi/etc; (2) verifier decides correctly with sqlite3.connect and socket.socket monkeypatched to raise.",
+    "latency": "in-process (no HTTP socket). offline_verify = finish_unlock x5000 (300 warmup excluded), 2x Ed25519 verify + checks, challenges pre-registered/responses pre-signed outside timing. issuance = credential.issue_credential x2000 (device keygen + Ed25519 sign, excludes DB insert).",
+    "no_double_book": "half-open interval overlap check inside BEGIN IMMEDIATE; 32 threads race for 1 room -> 1 winner; 40 overlapping stays for 10 rooms -> 10 assigned, 0 shared.",
+    "connected_room": "ConnectedRoomAuthorizer: static credential checks (sig/property/room/window/revocation) + active-assignment (room's checked-in stay) + device challenge-response; 26 cross-scope attempts (cross-room, impersonation, bad-command, post-checkout) -> 0 leaks."
+  },
+  "unmeasured": {
+    "network_latency": "___ (latency measured in-process via direct calls, not over an HTTP/TCP socket)",
+    "real_hardware": "___ (simulated lock; no real BLE/NFC radio, no physical lock)"
+  },
+  "repo_url": "https://github.com/Mohith26/hilton-digital-key-room-access",
+  "private": true,
+  "notes": "All Must-have v1 delivered: overlap-safe reservation/assignment (no double-book, incl. concurrency), Ed25519-signed time-boxed Digital Key issuance (short rolling TTL bounded by stay window, refreshable), OFFLINE LockVerifier (property pubkey + synced revocation list only, no DB/network at unlock; proven), challenge-response anti-replay (per-key device key + single-use lock nonce), checkout/room-change revocation, Connected-Room control scoped to active stay (0 cross-scope), FastAPI with {ok,data,error} envelope + validation. KEY DESIGN: credential binds a per-key device public key; unlock proves device possession via challenge-response so a stolen token without the device key is denied (bad_response). Property PRIVATE key stored only in gitignored PEM (0600) / env; guest device private key never reaches the lock; no secret committed. Simulated lock (no BLE/NFC hardware); synthetic seeded data; latency in-process. Out-of-scope (not built): real hardware, guest/lock web UI, BLE session keys, multi-property rotation, audit log, rate limiting."
+}

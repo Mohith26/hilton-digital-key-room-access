@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "measured_at": "2026-08-18T00:33:30+00:00",
+    "python": "3.12.13",
+    "cryptography": "50.0.0",
+    "staykey": "1.0.0",
+    "platform": "macOS-26.4.1-arm64-arm-64bit",
+    "data": "100% synthetic, seeded (STAYKEY_SEED=42); simulated lock (no real BLE/NFC hardware)"
+  },
+  "checks": {
+    "issued_key_unlocks_in_window": true,
+    "before_checkin_denied": true,
+    "after_checkout_window_denied": true,
+    "revoked_after_checkout_denied": true,
+    "pre_change_old_key_unlocks": true,
+    "room_changed_to_expected": true,
+    "old_key_denied_after_change": true,
+    "new_key_unlocks_new_room": true,
+    "new_key_wrong_room_denied": true
+  },
+  "all_correct": true,
+  "note": "issue->active->revoked lifecycle, room-change re-keying, and before/after stay-window boundary enforcement all verified."
+}
